@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iREAD - README.md Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 iREAD: README.md Generator</h1>
+        <form id="readmeForm">
+            <input type="text" id="title" placeholder="Project Title" required>
+            <textarea id="description" placeholder="Project Description" required></textarea>
+            <textarea id="installation" placeholder="Installation Instructions"></textarea>
+            <textarea id="usage" placeholder="Usage Information"></textarea>
+            <textarea id="contributing" placeholder="Contribution Guidelines"></textarea>
+            <textarea id="tests" placeholder="Test Instructions"></textarea>
+            
+            <select id="license">
+                <option value="">Select License</option>
+                <option value="MIT">MIT License</option>
+                <option value="GPLv3">GNU GPL v3</option>
+                <option value="Apache-2.0">Apache 2.0</option>
+                <option value="BSD-3-Clause">BSD 3-Clause</option>
+                <option value="none">None</option>
+            </select>
+
+            <input type="text" id="github" placeholder="GitHub Username">
+            <input type="email" id="email" placeholder="Email Address">
+
+            <button type="submit">Generate README</button>
+        </form>
+
+        <pre id="output"></pre>
+    </div>
+
+    <script>
+        document.getElementById('readmeForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                title: document.getElementById('title').value,
+                description: document.getElementById('description').value,
+                installation: document.getElementById('installation').value,
+                usage: document.getElementById('usage').value,
+                contributing: document.getElementById('contributing').value,
+                tests: document.getElementById('tests').value,
+                license: document.getElementById('license').value,
+                github: document.getElementById('github').value,
+                email: document.getElementById('email').value
+            };
+
+            const res = await fetch('/generate', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            });
+
+            const { readme } = await res.json();
+            document.getElementById('output').textContent = readme;
+        });
+    </script>
+</body>
+</html>
