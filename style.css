@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+    background-color: #f8f9fa; /* Slight off-white for contrast */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #007bff; /* Blue */
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea, select, button {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #007bff; /* Blue borders */
+    resize: vertical;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #fd7e14; /* Orange border on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(253,126,20,0.5);
+}
+
+button {
+    background-color: #007bff; /* Blue button */
+    color: #ffffff; /* White text */
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: #fd7e14; /* Orange on hover */
+    transform: translateY(-2px);
+}
+
+pre {
+    background-color: #ffffff; /* White background for output */
+    padding: 15px;
+    margin-top: 20px;
+    overflow-x: auto;
+    border-left: 4px solid #fd7e14; /* Orange highlight */
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+}
